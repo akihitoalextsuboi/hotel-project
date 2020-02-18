@@ -1,0 +1,36 @@
+<h1>お問い合わせ</h1>
+<div class="container">
+  <%= form_with model: @contact, local: true do %>
+    <!-- name -->
+    <div class="">
+      <label for="contact_name">Name</label>
+      <input class="" placeholder="Name" type="text" name="contact[name]" id="contact_name">
+    </div>
+
+    <!-- mail_address -->
+    <div class="form-group">
+      <label for="contact_mail_address">E-mail Address</label>
+      <input class="form-control w-50" placeholder="E-mail Address" type="text" name="contact[mail_address]" id="contact_mail_address">
+    </div>
+
+    <!-- title -->
+    <div class="form-group">
+      <label for="contact_title">性別</label>
+      <p>
+      <%= radio_button_tag :sex, 0 %>男性
+      <%= radio_button_tag :sex, 1 %>女性
+      </p>
+
+    </div>
+
+    <!-- body -->
+    <div class="form-group">
+      <label for="contact_body">Body</label>
+      <textarea class="form-control" placeholder="Body" name="contact[body]" id="contact_body"></textarea>
+    </div>
+
+    <div class="action">
+      <input class="btn btn-outline-dark" type="submit" name="commit" value="Create Contact" data-disable-with="Create Contact">
+    </div>
+  <% end %>
+</div>

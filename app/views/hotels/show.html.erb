@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1><%= @hotel.name %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <img src="<%= @hotel.picture_url%>" class="img-fluid" />
+    </div>
+    <div class="col-8">
+      <h5 class="mb-3">所在地 : <%= @hotel.prefecture.name %></h2>
+      <h4 class="mb-5"><%= @hotel.description %></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <% @hotel.reviews.order(created_at: :desc).first(3).each do |review| %>
+        <div class="card w-100 mb-2">
+          <h6 class="card-header">rating : <%= review.rating %></h6>
+          <div class="card-body">
+            <h6 class="card-title"><%= review.title %></h6>
+            <p class="card-subtitle mb-2"><%= review.name %></p>
+            <p class="card-text"><%= review.body %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

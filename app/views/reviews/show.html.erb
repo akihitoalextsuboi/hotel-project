@@ -1,0 +1,12 @@
+<div class="row">
+
+  <div class="col-md-3">
+    <p><b>Name: </b><%= @review.name %></p>
+    <p><b>Title: </b><%= @review.title %></p>
+    <p><b>Rating: </b><%= @review.rating %></p>
+    <p><b>Body: </b><%= @review.body %></p>
+    <p>
+      <%= link_to 'Back', hotel_reviews_path(@hotel) %>
+    </p>
+  </div>
+</div>

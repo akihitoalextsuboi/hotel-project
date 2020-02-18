@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-end">
+  <div class="text-right mr-5">
+    <form class="hotel_search" id="hotel_search" action="/hotels" accept-charset="UTF-8" method="get">
+      <div class="form-group">
+        <input name="utf8" type="hidden" value="✓">
+        <input placeholder="ホテル名" type="search" name="q[name_cont]" id="q_name_cont" class="form-control">
+        <input type="submit" name="commit" value="Search" data-disable-with="Search" class="btn btn-outline-dark">
+      </div>
+    </form>
+  </div>
+  <div class="text-right">
+    <form class="hotel_search" id="hotel_search" action="/hotels" accept-charset="UTF-8" method="get">
+      <div class="form-group">
+        <input name="utf8" type="hidden" value="✓">
+        <input placeholder="都道府県名" type="search" name="q[prefecture_name_cont]" id="q_prefecture_name_cont" class="form-control">
+        <input type="submit" name="commit" value="Search" data-disable-with="Search" class="btn btn-outline-dark">
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="card-deck">
+  <% @hotels.each do |hotel| %>
+    <div class="card">
+      <p class="card-img-top" alt="ホテルの写真"><img src="<%= hotel.picture_url%>" class="img-fluid" /></p>
+      <div class="card-body">
+        <h5 class="card-title"><%= hotel.name %></h5>
+        <p class="card-text">所在地 : <%= hotel.prefecture.name %></p>
+        <p class="card-text"><%= hotel.description %></p>
+      </div>
+      <div class="card-footer text-center d-flex justify-content-around">
+        <%= link_to '詳細を見る', hotel_path(hotel) %>
+        <%= link_to 'レビューを見る', hotel_reviews_path(hotel) %>
+      </div>
+    </div>
+  <% end %>
+</div>
